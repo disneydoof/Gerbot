@@ -1,7 +1,7 @@
 import cyberstarter
 import discord
 from discord.ext import commands
-
+from disputils import BotEmbedPaginator
 
 class CyberStarter(commands.Cog):
     """
@@ -42,8 +42,8 @@ class CyberStarter(commands.Cog):
 
             embeds.append(embed)
 
-        for embed in embeds:
-            await context.send(embed=embed)
+        paginator = BotEmbedPaginator(context, embeds)
+        await paginator.run()
 
 
 def setup(bot):
