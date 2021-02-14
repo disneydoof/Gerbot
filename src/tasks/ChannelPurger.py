@@ -75,13 +75,12 @@ async def ChannelPurger(bot: discord.ext.commands.bot.Bot):
     """
     Loops through the class list and grabs the channels, and looks at time stamp to determine what to do with it
     """
-    print(class_list)
+    
     for channel_names in range(0, len(class_list)):
         """
         If there are no channels left, escape
         """
         try:
-            print("Attempting to get a channel!")
             channel = discord.utils.get(
                 guild.text_channels, name=class_list[channel_names]
             )
@@ -130,27 +129,21 @@ async def ChannelPurger(bot: discord.ext.commands.bot.Bot):
                     continue
 
             except:
-                print("Channel is brand new, let's look at when it was created!")
                 date_of_creation = class_data[channel_names].created_at
                 date_of_creation = date_of_creation.replace(
                     tzinfo=timezone.utc
                 ).astimezone(tz=None)
-                print(class_data[channel_names])
                 now = datetime.now()
                 now = pytz.utc.localize(now)
                 
                 time_stamp = convert_date(date_of_creation)
-                print(time_stamp)
                 
                 now = convert_date(now)
                 days_passed = abs(now - time_stamp)
                 
                 days = days_passed.days
-                print(str(days) + " since this channel was created!")
                 if days > 30:
                     try:
-                        print("Channel is past 30 days!")
-                        print("Let's clean up!")
                         existing_channel = discord.utils.get(
                             guild.channels, name=class_list[channel_names]
                         )
@@ -162,7 +155,6 @@ async def ChannelPurger(bot: discord.ext.commands.bot.Bot):
                         classes_inactive_no_deleted.append(class_list[channel_names])
                         classes_inactive_no_deleted_days.append(days)
                     except:
-                        print("Clean up could not be done!")
                         break
                 else:
                     days_remaining = abs(30 - days)
