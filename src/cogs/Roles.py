@@ -153,8 +153,8 @@ class Roles(commands.Cog):
                 """
                 if not (body.split("-")[1] in professor_list):
                     await context.channel.send(
-                        f"{body} is not a valid professor name. Please double check your spelling <3. \nOtherwise do !roles to see all the prof roles and look for your specified class 
-                        \nIf your prof is not available, please submit a issue here: https://github.com/IT-Discord/Gerbot"
+                        f"{body} is not a valid professor name. Please double check your spelling <3. \nOtherwise do !roles to see all the prof roles and look for your specified class" +
+                        "\nIf your prof is not available, please submit a issue here: https://github.com/UCF-IT-Discord/Gerbot"
                     )
                     return
 
