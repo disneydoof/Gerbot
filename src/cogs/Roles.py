@@ -147,6 +147,7 @@ class Roles(commands.Cog):
                         "zou",
                         "jones",
                         "reyes",
+                        "dhalla",
                     ]
                 )
 
