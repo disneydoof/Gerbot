@@ -149,7 +149,8 @@ class Roles(commands.Cog):
                         "reyes",
                         "dhalla",
                         "kang",
-                        "raffel"
+                        "raffel",
+                        "roberts"
                     ]
                 )
 
